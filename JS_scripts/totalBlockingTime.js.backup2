@@ -1,0 +1,64 @@
+function estimateBlockingTime() {
+    console.log("Function executing...");
+
+    function pollForResources() {
+        //const resources = performance.getEntriesByType("resource");
+        const resources = performance.getEntries();
+        console.log(resources)
+        console.log("Number of Resource Entries:", resources.length);
+
+        if (resources.length === 0) {
+            setTimeout(pollForResources, 500); //Poll every 500ms
+        } else {
+            let totalBlocking = 0;
+            let lastEventTime = performance.now();
+          
+            for (const resource of resources) {
+                // Consider potential blocking based on resource type and size
+                const blockingFactor = calculateBlockingFactor(resource);
+                console.log('Blocking factor: ${blockingFactor}');
+                totalBlocking += (resource.responseEnd - resource.startTime) * blockingFactor;
+          
+                // Heuristic for main thread blocking during gaps
+                const timeSinceLastEvent = performance.now() - lastEventTime;
+                if (timeSinceLastEvent > 50) { 
+                    totalBlocking += timeSinceLastEvent - 50;
+                    console.log('Total blocking: ${totalBlocking}');
+                }
+                //lastEventTime = performance.now(); 
+                console.log('Last event time: ${lastEventTime}');
+            }
+
+            // Heuristic for main thread blocking during gaps:
+            //let lastEventTime = performance.now();
+            for (const resource of resources) {
+                const blockingFactor = calculateBlockingFactor(resource);
+                console.log('Blocking factor: ${blockingFactor}');
+                totalBlocking += (resource.responseEnd - resource.startTime) * blockingFactor;
+
+                const timeSinceLastEvent = performance.now() - lastEventTime;
+                if (timeSinceLastEvent > 50) {
+                    totalBlocking += timeSinceLastEvent - 50;
+                    console.log('Total blocking: ${totalBlocking}');
+                }
+                lastEventTime = performance.now();
+            }
+            console.log("Estimated Total Blocking Time: ", totalBlocking)
+        }
+    }
+    pollForResources();
+}
+
+function calculateBlockingFactor(resource) {
+    // Larger resources and certain types have higher potential to block
+    if (resource.transferSize > 500 * 1024) { // 500KB+
+        return 0.8; // Example: Assume a high blocking probability
+    } else if (['script', 'stylesheet', 'font'].includes(resource.initiatorType)) {
+        return 0.5; // Example: Moderate blocking probability
+    } else {
+        return 0.2; // Lower probability for other resource types 
+    }
+}
+
+const estimatedTBT = estimateBlockingTime();
+return estimatedTBT;
