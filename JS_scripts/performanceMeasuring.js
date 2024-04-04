@@ -33,12 +33,27 @@ function estimateBlockingTime() {
 
 //const estimatedTBT = estimateBlockingTime();
 
+function getTTI() {
+    let fcp = performance.getEntriesByType('paint').filter(entry => entry.name === 'first-contentful-paint')[0].startTime;
+    const longTaskThreshold = 50;
+
+    let longResources = performance.getEntriesByType('resource').filter(entry => entry.duration > longTaskThreshold);
+
+    let latestTaskEndTime = fcp;  
+    longResources.forEach(task => {
+        let endTime  = task.startTime + task.duration;
+        latestTaskEndTime = Math.max(latestTaskEndTime, endTime); 
+    });
+
+    return latestTaskEndTime;
+}
 
 function getPerformanceMetrics() {
     
     const metrics = {
         fcp: getContentfulPaints().fcp, 
         estimatedTBT: estimateBlockingTime(),
+        TTI: getTTI()
     };
 
 

@@ -1,9 +1,6 @@
 import tbselenium.common as cm
 from tbselenium.tbdriver import TorBrowserDriver
 from tbselenium.utils import launch_tbb_tor_with_stem
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 import os
 import csv
@@ -93,7 +90,8 @@ def measure_performance(driver):
     return performance_metrics 
 
 
-
+# Currently not used; consolidated in measure_performance
+# Cleanup later, leave for now in case of issues
 def measure_fcp_and_lcp(driver):
     metrics = driver.execute_script(open(os.path.join(ROOT_DIR, 'JS_scripts', 'performanceMeasuring.js')).read() + " return getContentfulPaints();")
 
@@ -105,7 +103,8 @@ def measure_fcp_and_lcp(driver):
 
 
 
-
+# Currently not used; consolidated in measure_performance
+# Cleanup later, leave for now in case of issues
 def measure_total_blocking_time(driver):
     tbt_value = driver.execute_script(open(os.path.join(ROOT_DIR, 'JS_scripts', 'performanceMeasuring.js')).read() + " return estimatedTBT;")
     print("Estimated Blocking Time: ", tbt_value)
