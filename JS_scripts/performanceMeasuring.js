@@ -33,27 +33,55 @@ function estimateBlockingTime() {
 
 //const estimatedTBT = estimateBlockingTime();
 
-function getTTI() {
+/*
+function getApproxTTI() {
     let fcp = performance.getEntriesByType('paint').filter(entry => entry.name === 'first-contentful-paint')[0].startTime;
-    const longTaskThreshold = 50;
+    const longTaskThreshold = 1;
 
     let longResources = performance.getEntriesByType('resource').filter(entry => entry.duration > longTaskThreshold);
 
     let latestTaskEndTime = fcp;  
     longResources.forEach(task => {
         let endTime  = task.startTime + task.duration;
+        console.log("Task Start:", task.startTime, "End:", endTime);
         latestTaskEndTime = Math.max(latestTaskEndTime, endTime); 
     });
 
+    console.log("Final latestTaskEndTime:", latestTaskEndTime);
     return latestTaskEndTime;
 }
+*/
+
+function getApproxTTI() {
+    let fcp = performance.getEntriesByType('paint').filter(entry => entry.name === 'first-contentful-paint')[0].startTime;
+    const scriptThreshold = 10;
+
+    let potentialTTIEndMarkers = [fcp];
+
+    let longResources = performance.getEntriesByType('resource').filter(entry => entry.duration > scriptThreshold);
+
+    longResources.forEach(task => potentialTTIEndMarkers.push(task.startTime + task.duration));
+
+    performance.getEntriesByType('script').forEach(scriptEntry => {
+        potentialTTIEndMarkers.push(scriptEntry.startTime + scriptEntry.duration);
+
+    });
+    
+    let domLoaded = performance.getEntriesByType('navigation').filter(entry => entry.type === 'domContentLoaded')[0].domContentLoadedEventEnd;
+    potentialTTIEndMarkers.push(domLoaded);
+
+
+    let latestActivityEnd = Math.max(...potentialTTIEndMarkers);
+    return latestActivityEnd
+}
+
 
 function getPerformanceMetrics() {
     
     const metrics = {
         fcp: getContentfulPaints().fcp, 
         estimatedTBT: estimateBlockingTime(),
-        TTI: getTTI()
+        TTI: getApproxTTI()
     };
 
 
