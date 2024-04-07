@@ -7,6 +7,7 @@ import os
 import csv
 import psutil
 import re
+import json
 
 
 
@@ -93,8 +94,9 @@ def load_site(url):
         #     print(f'Couldn\'t load {url_checked}. Error: {e}')
         #     print('Continuing with next site...')
         driver.load_url(url_checked)
-        measure_performance(driver)
-        input("Press Enter to continue...")
+        metrics = measure_performance(driver)
+        store_perf_metrics_in_json(driver, url_checked, metrics)
+        #input("Press Enter to continue...")
 
     # Close the tor process after each crawl
     tor_process.kill()
@@ -104,6 +106,19 @@ def measure_performance(driver):
     performance_metrics = driver.execute_script(open(os.path.join(ROOT_DIR, 'JS_scripts', 'performanceMeasuring.js')).read() + " return getPerformanceMetrics();")
     print(performance_metrics)
     return performance_metrics 
+
+
+def store_perf_metrics_in_json(driver, url_checked, metrics, output_file="metrics.json"):
+    if os.path.exists(output_file):
+        with open(output_file, 'r') as file:
+            data = json.load(file)
+    else:
+        data = {"sites": {}}
+
+    data["sites"][url_checked] = metrics
+
+    with open(os.path.join(ROOT_DIR, 'json_files', output_file), 'w') as file:
+        json.dump(data, file, indent=4)
 
 
 # Currently not used; consolidated in measure_performance
@@ -116,7 +131,6 @@ def measure_fcp_and_lcp(driver):
     else:
         print("First Contentful Paint: No value found")
     
-
 
 
 # Currently not used; consolidated in measure_performance
