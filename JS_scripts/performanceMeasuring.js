@@ -47,13 +47,26 @@ function getNavigationTiming() {
     return timingData;
 }
 
+function getDNSLookupTimes(hostname) {
+    const resources = performance.getEntriesByType("resource");
+    const resourceEntry = resources.find(entry => entry.name.includes(hostname));
+
+    if (resourceEntry) {
+        return resourceEntry.domainLookupEnd - resourceEntry.domainLookupStart;
+    } else {
+        return null;
+    }
+}
 
 function getPerformanceMetrics() {
-    
+    const hostname = new URL(performance.getEntriesByType("navigation")[0].name).hostname;
+
+
     const metrics = {
         fcp: getContentfulPaints().fcp, 
         estimatedTBT: estimateBlockingTime(),
-        navigationTiming: getNavigationTiming()
+        navigationTiming: getNavigationTiming(),
+        dnsLookupTimes: getDNSLookupTimes(hostname),
     };
 
 

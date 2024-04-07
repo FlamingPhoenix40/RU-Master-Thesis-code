@@ -95,7 +95,7 @@ def load_site(url):
         #     print('Continuing with next site...')
         driver.load_url(url_checked)
         metrics = measure_performance(driver)
-        store_perf_metrics_in_json(driver, url_checked, metrics)
+        store_perf_metrics_in_json(url_checked, metrics)
         #input("Press Enter to continue...")
 
     # Close the tor process after each crawl
@@ -108,16 +108,20 @@ def measure_performance(driver):
     return performance_metrics 
 
 
-def store_perf_metrics_in_json(driver, url_checked, metrics, output_file="metrics.json"):
-    if os.path.exists(output_file):
+def store_perf_metrics_in_json(url_checked, metrics, output_file="metrics.json"):
+    
+    if os.path.exists(os.path.join(ROOT_DIR, 'json_files', output_file)):
+        print(f'\n File {output_file} exists, loading data...\n')
         with open(output_file, 'r') as file:
             data = json.load(file)
     else:
+        print('\n No existing json file found, continuing...\n')
         data = {"sites": {}}
 
     data["sites"][url_checked] = metrics
 
     with open(os.path.join(ROOT_DIR, 'json_files', output_file), 'w') as file:
+        print('Writing json file... \n')
         json.dump(data, file, indent=4)
 
 
