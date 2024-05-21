@@ -1,5 +1,6 @@
 function getContentfulPaints() {
     const paintTimings = performance.getEntriesByType("paint");
+    console.log("paintTimings: ", paintTimings);
     const fcpEntry = paintTimings.find(entry => entry.name === "first-contentful-paint");
   
     return {
@@ -10,20 +11,20 @@ function getContentfulPaints() {
 
   //return getContentfulPaints(); 
 
-function estimateBlockingTime() {
+function estimateBlockingTime(navigationEntry) {
     console.log("estimateBlockingTime function executing...");
 
-    const performanceEntries = performance.getEntriesByType("navigation");
+    
 
-    if (performanceEntries.length === 0) {
+    if (navigationEntry.length === 0) {
         console.log("No navigation entries found");
         return;
     }
 
-    const navigationEntry = performanceEntries[0];
+    const navigationEntry_zero = navigationEntry[0];
 
-    const startTime = navigationEntry.startTime;
-    const loadEventEnd = navigationEntry.loadEventEnd;
+    const startTime = navigationEntry_zero.startTime;
+    const loadEventEnd = navigationEntry_zero.loadEventEnd;
     const estimatedTBT = (loadEventEnd - startTime) * 0.6;
 
     console.log("Estimated Total Blocking Time: ", estimatedTBT);
@@ -33,15 +34,32 @@ function estimateBlockingTime() {
 
 //const estimatedTBT = estimateBlockingTime();
 
-function getNavigationTiming() {
+function getNavigationTiming(navigationEntry) {
     let timingData = {};
-    let navigationEntry = performance.getEntriesByType("navigation")[0];
+    const navigationEntry_zero = navigationEntry[0];
 
-    if (navigationEntry) {
-        timingData.domInteractive = navigationEntry.domInteractive;
-        timingData.domContentLoadedEventEnd = navigationEntry.domContentLoadedEventEnd;
-        timingData.domComplete = navigationEntry.domComplete;
-        timingData.loadEventEnd = navigationEntry.loadEventEnd;
+    if (navigationEntry_zero) {
+        timingData.navigationStart = navigationEntry_zero.navigationStart;
+        timingData.fetchStart = navigationEntry_zero.fetchStart;
+        timingData.domainLookupStart = navigationEntry_zero.domainLookupStart;
+        timingData.domainLookupEnd = navigationEntry_zero.domainLookupEnd;
+        timingData.connectStart = navigationEntry_zero.connectStart;
+        timingData.connectEnd = navigationEntry_zero.connectEnd;
+        timingData.secureConnectionStart = navigationEntry_zero.secureConnectionStart;
+        timingData.domInteractive = navigationEntry_zero.domInteractive;
+        timingData.domContentLoadedEventStart = navigationEntry_zero.domContentLoadedEventStart;
+        timingData.domContentLoadedEventEnd = navigationEntry_zero.domContentLoadedEventEnd;
+        timingData.domComplete = navigationEntry_zero.domComplete;
+        timingData.domloading = navigationEntry_zero.domLoading;
+        timingData.domInteractive = navigationEntry_zero.domInteractive;
+        timingData.loadEventStart = navigationEntry_zero.loadEventStart;
+        timingData.loadEventEnd = navigationEntry_zero.loadEventEnd;
+        timingData.requestStart = navigationEntry_zero.requestStart;
+        timingData.responseStart = navigationEntry_zero.responseStart;
+        timingData.responseEnd = navigationEntry_zero.responseEnd;
+        timingData.loadEventStart = navigationEntry_zero.loadEventStart;
+        timingData.loadEventEnd = navigationEntry_zero.loadEventEnd;
+
     }
 
     return timingData;
@@ -58,17 +76,27 @@ function getDNSLookupTimes(hostname) {
     }
 }
 
-function getPerformanceMetrics() {
-    const hostname = new URL(performance.getEntriesByType("navigation")[0].name).hostname;
+function recordNavigationStartTime() {
+    window.pythonPageLoadStartTime = performance.now();
+}
 
+
+
+function getPerformanceMetrics(navigationEntry) {
+    const hostname = new URL(navigationEntry[0].name).hostname;
 
     const metrics = {
-        fcp: getContentfulPaints().fcp, 
-        estimatedTBT: estimateBlockingTime(),
-        navigationTiming: getNavigationTiming(),
+        fcp: getContentfulPaints(navigationEntry).fcp, 
+        estimatedTBT: estimateBlockingTime(navigationEntry),
+        navigationTiming: getNavigationTiming(navigationEntry),
         dnsLookupTimes: getDNSLookupTimes(hostname),
+
     };
 
 
     return metrics;
 }
+
+recordNavigationStartTime();
+const navigationEntry = performance.getEntriesByType("navigation");
+console.log("pythonPageLoadStartTime: ", window.pythonPageLoadStartTime);
