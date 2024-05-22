@@ -2,6 +2,8 @@ import tbselenium.common as cm
 from tbselenium.tbdriver import TorBrowserDriver
 from tbselenium.utils import launch_tbb_tor_with_stem
 from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import os
 import csv
 #import psutil
@@ -22,24 +24,33 @@ ROOT_DIR = os.path.realpath(os.path.dirname(__file__))
 # Set path to tor browser
 tbb_dir = "/home/gilbert/tor-browser"
 # torrc_path = "/home/gilbert/GitKraken/RU-Master-Thesis-Code/torrc_custom"
-csv_file = 'top-1000.csv'
+csv_file = 'top-2.csv'
 tranco_count = 0
 socks_port = free_port()
 # json_name = input('Enter name of json file to store metrics in: ')
-json_name = '1000-testrun.json'
+json_name = 'new_tab_test.json'
 log_file = 'debug file /home/gilbert/tor_logs/tor_1000test.log'
+tor_process=None
 ### End of pahts and directories ###
 
 
 
 def main():
     print('Main function started')
-    
+    tor_process = None
     
     # Tranco file to load. As seen from the directory where program.py lives, csv should be in the 'tranco' folder.
     tranco_data = load_tranco_file(csv_file)
     print('Tranco data loaded')
-    tranco_looper(tranco_data)
+    while tor_process is None:
+        print('Trying to launch Tor process...')
+        tor_process = launch_tor_process()
+        if tor_process is None:
+            print('Tor process not launched, retrying...')
+        else:
+            print('Tor process launched successfully')
+
+    tranco_looper(tranco_data, tor_process)
     
     #tor_process.kill()
     
@@ -103,25 +114,52 @@ def load_tranco_file(csv_file):
     return csv_data
 
 
-def tranco_looper(tranco_data):
+def tranco_looper(tranco_data, tor_process):
     # Debug to check how long tranco data is
     global tranco_count
     print("tranco data is " + str(len(tranco_data)) + " long")
-    # For each entry in the tranco data, do the stuff. Note: first column is the rank, second is the domain as a string.
-    while tranco_count <= (len(tranco_data)-1):
-        url = tranco_data[tranco_count]
+    with TorBrowserDriver(tbb_dir, tor_cfg=cm.USE_STEM, socks_port=socks_port) as driver:
+        wait = WebDriverWait(driver, 10)
+        driver.load_url('https://check.torproject.org/')
+        print('Tor check loaded')
+
+        # For each entry in the tranco data, do the stuff. Note: first column is the rank, second is the domain as a string.
+        while tranco_count <= (len(tranco_data)-1):
+            url = tranco_data[tranco_count]
+            url_checked = format_url(url[1])
+            print('url formatted')
+            original_window = driver.current_window_handle
+            print('Current window handle: ' + original_window)
+            driver.switch_to.new_window('tab')
+            print('Switched to new tab')
+            wait.until(EC.number_of_windows_to_be(2))
+            print(f'Trying to load: {url_checked}')
+            try:
+                driver.load_url(url_checked)
+                metrics = measure_performance(driver)
+                store_perf_metrics_in_json(url_checked, metrics)
+            except WebDriverException as e:
+                print(f'Couldn\'t load {url_checked}. Error: {e}')
+                print('Continuing with next site...')
+
+            driver.close()
+            driver.switch_to.window(original_window)
+
+            
+            # Load the site using the load_site function and increase the tranco count
+            # to keep track at how far we are in the tranco list.
+            tranco_count += 1
+            # load_site(url)
         
-        # Load the site using the load_site function and increase the tranco count
-        # to keep track at how far we are in the tranco list.
-        tranco_count += 1
-        load_site(url)
         
 
     print('Last site loaded, exiting program...')
+    tor_process.kill()
         
 
 def load_site(url):
     global tranco_count
+    print('We are now using the load_site function')
     # Format the url to be correct
     url_checked = format_url(url[1])
 
