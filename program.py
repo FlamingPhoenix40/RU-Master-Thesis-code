@@ -28,8 +28,8 @@ csv_file = 'top-2.csv'
 tranco_count = 0
 socks_port = free_port()
 # json_name = input('Enter name of json file to store metrics in: ')
-json_name = 'new_tab_test.json'
-log_file = 'debug file /home/gilbert/tor_logs/tor_1000test.log'
+json_name = '1_mil_no_ublock.json'
+log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/1_mil_no_ublock.log'
 tor_process=None
 ### End of pahts and directories ###
 
@@ -119,21 +119,30 @@ def tranco_looper(tranco_data, tor_process):
     global tranco_count
     print("tranco data is " + str(len(tranco_data)) + " long")
     with TorBrowserDriver(tbb_dir, tor_cfg=cm.USE_STEM, socks_port=socks_port) as driver:
+        # Setup wait for use later according to the Selenium documentation
         wait = WebDriverWait(driver, 10)
+
+        # Load a site for which we don't measure performance, just to create the window that will be used for the rest of the run.
+        # We load check.torproject.org because this also allows us to check our connection to the Tor network.
         driver.load_url('https://check.torproject.org/')
         print('Tor check loaded')
 
-        # For each entry in the tranco data, do the stuff. Note: first column is the rank, second is the domain as a string.
+        # For each entry in the tranco data, collect the performance measurements. Note: first column is the rank, second is the domain as a string.
         while tranco_count <= (len(tranco_data)-1):
             url = tranco_data[tranco_count]
+            # Format the url to be correct for Selenium
             url_checked = format_url(url[1])
             print('url formatted')
+            # Store the id of the 1st tab, so we can properly switch back to it after closing the new tab that is used for the actual crawling.
             original_window = driver.current_window_handle
             print('Current window handle: ' + original_window)
+            # Open a new tab
             driver.switch_to.new_window('tab')
             print('Switched to new tab')
+            # Wait until the new tab has finished opening
             wait.until(EC.number_of_windows_to_be(2))
             print(f'Trying to load: {url_checked}')
+            # Try to load site from the Tranco list and collect performance metrics
             try:
                 driver.load_url(url_checked)
                 metrics = measure_performance(driver)
@@ -141,22 +150,24 @@ def tranco_looper(tranco_data, tor_process):
             except WebDriverException as e:
                 print(f'Couldn\'t load {url_checked}. Error: {e}')
                 print('Continuing with next site...')
-
+            # Close the new tab
             driver.close()
+            # Switch back to the original tab
             driver.switch_to.window(original_window)
 
-            
-            # Load the site using the load_site function and increase the tranco count
-            # to keep track at how far we are in the tranco list.
+            # Increment the count to go to the next site in the Tranco list
             tranco_count += 1
             # load_site(url)
         
         
-
+    # Once all sites have been loaded, close the Tor process.
     print('Last site loaded, exiting program...')
     tor_process.kill()
         
 
+# Currently not used; consolidated in tranco_looper
+# because we now work with 1 window where we open and close tabs 
+# instead of killing and restarting the browser for each site.
 def load_site(url):
     global tranco_count
     print('We are now using the load_site function')
@@ -204,9 +215,6 @@ def measure_performance(driver):
     start_time = time.time_ns() / 1000000
     
     print(start_time)
-    #response_start = performance_metrics['responseStart']
-    #estimated_ttfb = response_start - start_time
-    #print(f'Estimated Time to First Byte: {estimated_ttfb} ms')
     return performance_metrics 
 
 
@@ -245,7 +253,8 @@ def measure_total_blocking_time(driver):
     tbt_value = driver.execute_script(open(os.path.join(ROOT_DIR, 'JS_scripts', 'performanceMeasuring.js')).read() + " return estimatedTBT;")
     print("Estimated Blocking Time: ", tbt_value)
 
-    
+
+# Make sure the url is formatted correctly for Selenium    
 def format_url(url):
     # If the url does not start with http:// or https://, add it to the url
     if not re.match('(?:http|https)://', url):
