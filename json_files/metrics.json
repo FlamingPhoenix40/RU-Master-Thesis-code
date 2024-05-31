@@ -1,0 +1,20 @@
+{
+    "sites": {
+        "https://tweakers.net": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 5860.1172,
+            "fcp": 5533.444,
+            "navigationTiming": {
+                "domComplete": 9766.862,
+                "domContentLoadedEventEnd": 5533.444,
+                "domInteractive": 5516.777,
+                "domloading": null,
+                "loadEventEnd": 9766.862,
+                "loadEventStart": 9766.862,
+                "requestStart": 2616.719,
+                "responseEnd": 3450.069,
+                "responseStart": 3450.069
+            }
+        }
+    }
+}

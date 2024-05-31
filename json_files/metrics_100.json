@@ -1,0 +1,1140 @@
+{
+    "sites": {
+        "https://google.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 19590.3918,
+            "fcp": 9600.192,
+            "navigationTiming": {
+                "domComplete": 32650.653,
+                "domContentLoadedEventEnd": 9650.193,
+                "domInteractive": 9650.193,
+                "domloading": null,
+                "loadEventEnd": 32650.653,
+                "loadEventStart": 32650.653,
+                "requestStart": 9083.515,
+                "responseEnd": 9516.857,
+                "responseStart": 9516.857
+            }
+        },
+        "https://facebook.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 24980.4996,
+            "fcp": 20367.074,
+            "navigationTiming": {
+                "domComplete": 41634.166,
+                "domContentLoadedEventEnd": 20367.074,
+                "domInteractive": 20333.74,
+                "domloading": null,
+                "loadEventEnd": 41634.166,
+                "loadEventStart": 41634.166,
+                "requestStart": 5833.45,
+                "responseEnd": 6516.797,
+                "responseStart": 6516.797
+            }
+        },
+        "https://microsoft.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 15560.311199999998,
+            "fcp": 13900.278,
+            "navigationTiming": {
+                "domComplete": 25933.852,
+                "domContentLoadedEventEnd": 18933.712,
+                "domInteractive": 18933.712,
+                "domloading": null,
+                "loadEventEnd": 25933.852,
+                "loadEventStart": 25933.852,
+                "requestStart": 7316.813,
+                "responseEnd": 8433.502,
+                "responseStart": 8433.502
+            }
+        },
+        "https://apple.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 13870.2774,
+            "fcp": 5316.773,
+            "navigationTiming": {
+                "domComplete": 23100.462,
+                "domContentLoadedEventEnd": 9416.855,
+                "domInteractive": 9416.855,
+                "domloading": null,
+                "loadEventEnd": 23117.129,
+                "loadEventStart": 23117.129,
+                "requestStart": 1083.355,
+                "responseEnd": 1166.69,
+                "responseStart": 1166.69
+            }
+        },
+        "https://googleapis.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 5900.118,
+            "fcp": 4833.43,
+            "navigationTiming": {
+                "domComplete": 9833.53,
+                "domContentLoadedEventEnd": 4833.43,
+                "domInteractive": 4833.43,
+                "domloading": null,
+                "loadEventEnd": 9833.53,
+                "loadEventStart": 9833.53,
+                "requestStart": 3033.394,
+                "responseEnd": 4750.095,
+                "responseStart": 4750.095
+            }
+        },
+        "https://youtube.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 53401.068,
+            "fcp": 50001,
+            "navigationTiming": {
+                "domComplete": 89001.78,
+                "domContentLoadedEventEnd": 50017.667,
+                "domInteractive": 50017.667,
+                "domloading": null,
+                "loadEventEnd": 89001.78,
+                "loadEventStart": 89001.78,
+                "requestStart": 5666.78,
+                "responseEnd": 6183.457,
+                "responseStart": 6183.457
+            }
+        },
+        "https://azure.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 24440.4888,
+            "fcp": 8166.83,
+            "navigationTiming": {
+                "domComplete": 40734.148,
+                "domContentLoadedEventEnd": 12316.913,
+                "domInteractive": 11883.571,
+                "domloading": null,
+                "loadEventEnd": 40734.148,
+                "loadEventStart": 40734.148,
+                "requestStart": 2600.052,
+                "responseEnd": 2883.391,
+                "responseStart": 2883.391
+            }
+        },
+        "https://twitter.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 8790.175799999999,
+            "fcp": 4066.748,
+            "navigationTiming": {
+                "domComplete": 14650.293,
+                "domContentLoadedEventEnd": 7400.148,
+                "domInteractive": 7400.148,
+                "domloading": null,
+                "loadEventEnd": 14650.293,
+                "loadEventStart": 14650.293,
+                "requestStart": 3100.062,
+                "responseEnd": 3866.744,
+                "responseStart": 3866.744
+            }
+        },
+        "https://instagram.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 23480.4696,
+            "fcp": 13133.596,
+            "navigationTiming": {
+                "domComplete": 39134.116,
+                "domContentLoadedEventEnd": 13366.934,
+                "domInteractive": 13366.934,
+                "domloading": null,
+                "loadEventEnd": 39134.116,
+                "loadEventStart": 39134.116,
+                "requestStart": 7416.815,
+                "responseEnd": 9050.181,
+                "responseStart": 9050.181
+            }
+        },
+        "https://googlevideo.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 15650.312999999998,
+            "fcp": 17567.018,
+            "navigationTiming": {
+                "domComplete": 26083.855,
+                "domContentLoadedEventEnd": 18300.366,
+                "domInteractive": 17567.018,
+                "domloading": null,
+                "loadEventEnd": 26083.855,
+                "loadEventStart": 26083.855,
+                "requestStart": 16483.663,
+                "responseEnd": 16917.005,
+                "responseStart": 16917.005
+            }
+        },
+        "https://gstatic.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 6690.1338,
+            "fcp": 5783.449,
+            "navigationTiming": {
+                "domComplete": 11150.223,
+                "domContentLoadedEventEnd": 5766.782,
+                "domInteractive": 5766.782,
+                "domloading": null,
+                "loadEventEnd": 11150.223,
+                "loadEventStart": 11150.223,
+                "requestStart": 4883.431,
+                "responseEnd": 5700.114,
+                "responseStart": 5700.114
+            }
+        },
+        "https://cloudflare.com": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 12110.2422,
+            "fcp": 8866.844,
+            "navigationTiming": {
+                "domComplete": 20183.737,
+                "domContentLoadedEventEnd": 15466.976,
+                "domInteractive": 9316.853,
+                "domloading": null,
+                "loadEventEnd": 20183.737,
+                "loadEventStart": 20183.737,
+                "requestStart": 4083.415,
+                "responseEnd": 6666.8,
+                "responseStart": 6666.8
+            }
+        },
+        "https://live.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 49710.9942,
+            "fcp": 8733.508,
+            "navigationTiming": {
+                "domComplete": 82818.323,
+                "domContentLoadedEventEnd": 15066.968,
+                "domInteractive": 14816.963,
+                "domloading": null,
+                "loadEventEnd": 82851.657,
+                "loadEventStart": 82818.323,
+                "requestStart": 5416.775,
+                "responseEnd": 5516.777,
+                "responseStart": 5516.777
+            }
+        },
+        "https://linkedin.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 6570.131399999999,
+            "fcp": 9450.189,
+            "navigationTiming": {
+                "domComplete": 10950.219,
+                "domContentLoadedEventEnd": 6116.789,
+                "domInteractive": 6116.789,
+                "domloading": null,
+                "loadEventEnd": 10950.219,
+                "loadEventStart": 10950.219,
+                "requestStart": 5200.104,
+                "responseEnd": 6016.787,
+                "responseStart": 6016.787
+            }
+        },
+        "https://doubleclick.net": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 9110.1822,
+            "fcp": 14233.618,
+            "navigationTiming": {
+                "domComplete": 15183.637,
+                "domContentLoadedEventEnd": 15150.303,
+                "domInteractive": 15133.636,
+                "domloading": null,
+                "loadEventEnd": 15183.637,
+                "loadEventStart": 15183.637,
+                "requestStart": 12483.583,
+                "responseEnd": 13200.264,
+                "responseStart": 13200.264
+            }
+        },
+        "https://office.com": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 38290.7658,
+            "fcp": 7083.475,
+            "navigationTiming": {
+                "domComplete": 63817.943,
+                "domContentLoadedEventEnd": 10016.867,
+                "domInteractive": 10016.867,
+                "domloading": null,
+                "loadEventEnd": 63817.943,
+                "loadEventStart": 63817.943,
+                "requestStart": 3650.073,
+                "responseEnd": 4050.081,
+                "responseStart": 4050.081
+            }
+        },
+        "https://googletagmanager.com": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 1650.033,
+            "fcp": 1783.369,
+            "navigationTiming": {
+                "domComplete": 2750.055,
+                "domContentLoadedEventEnd": 2750.055,
+                "domInteractive": 2733.388,
+                "domloading": null,
+                "loadEventEnd": 2750.055,
+                "loadEventStart": 2750.055,
+                "requestStart": 1366.694,
+                "responseEnd": 1666.7,
+                "responseStart": 1666.7
+            }
+        },
+        "https://netflix.com": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 14840.2968,
+            "fcp": 7966.826,
+            "navigationTiming": {
+                "domComplete": 24733.828,
+                "domContentLoadedEventEnd": 11083.555,
+                "domInteractive": 11066.888,
+                "domloading": null,
+                "loadEventEnd": 24733.828,
+                "loadEventStart": 24733.828,
+                "requestStart": 3216.731,
+                "responseEnd": 3816.743,
+                "responseStart": 3816.743
+            }
+        },
+        "https://amazon.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 2860.0571999999997,
+            "fcp": 2950.059,
+            "navigationTiming": {
+                "domComplete": 4766.762,
+                "domContentLoadedEventEnd": 2950.059,
+                "domInteractive": 2916.725,
+                "domloading": null,
+                "loadEventEnd": 4766.762,
+                "loadEventStart": 4766.762,
+                "requestStart": 1600.032,
+                "responseEnd": 2000.04,
+                "responseStart": 2000.04
+            }
+        },
+        "https://fbcdn.net": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 4930.0986,
+            "fcp": 7066.808,
+            "navigationTiming": {
+                "domComplete": 8216.831,
+                "domContentLoadedEventEnd": 7050.141,
+                "domInteractive": 7033.474,
+                "domloading": null,
+                "loadEventEnd": 8216.831,
+                "loadEventStart": 8216.831,
+                "requestStart": 2933.392,
+                "responseEnd": 5100.102,
+                "responseStart": 5100.102
+            }
+        },
+        "https://googleusercontent.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 2730.0546,
+            "fcp": 2933.392,
+            "navigationTiming": {
+                "domComplete": 4550.091,
+                "domContentLoadedEventEnd": 2916.725,
+                "domInteractive": 2916.725,
+                "domloading": null,
+                "loadEventEnd": 4550.091,
+                "loadEventStart": 4550.091,
+                "requestStart": 2400.048,
+                "responseEnd": 2800.056,
+                "responseStart": 2800.056
+            }
+        },
+        "https://wikipedia.org": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 1950.039,
+            "fcp": 3066.728,
+            "navigationTiming": {
+                "domComplete": 3250.065,
+                "domContentLoadedEventEnd": 3250.065,
+                "domInteractive": 3233.398,
+                "domloading": null,
+                "loadEventEnd": 3250.065,
+                "loadEventStart": 3250.065,
+                "requestStart": 2266.712,
+                "responseEnd": 2700.054,
+                "responseStart": 2700.054
+            }
+        },
+        "https://fastly.net": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 19950.399,
+            "fcp": 18100.362,
+            "navigationTiming": {
+                "domComplete": 33233.998,
+                "domContentLoadedEventEnd": 20300.406,
+                "domInteractive": 20300.406,
+                "domloading": null,
+                "loadEventEnd": 33250.665,
+                "loadEventStart": 33250.665,
+                "requestStart": 11316.893,
+                "responseEnd": 12866.924,
+                "responseStart": 12866.924
+            }
+        },
+        "https://icloud.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 1890.0378,
+            "fcp": 1233.358,
+            "navigationTiming": {
+                "domComplete": 3150.063,
+                "domContentLoadedEventEnd": 3150.063,
+                "domInteractive": 1216.691,
+                "domloading": null,
+                "loadEventEnd": 3150.063,
+                "loadEventStart": 3150.063,
+                "requestStart": 933.352,
+                "responseEnd": 1100.022,
+                "responseStart": 1033.354
+            }
+        },
+        "https://bing.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 3610.0722,
+            "fcp": null,
+            "navigationTiming": {
+                "domComplete": 6016.787,
+                "domContentLoadedEventEnd": 6016.787,
+                "domInteractive": 6016.787,
+                "domloading": null,
+                "loadEventEnd": 6016.787,
+                "loadEventStart": 6016.787,
+                "requestStart": 1800.036,
+                "responseEnd": 2016.707,
+                "responseStart": 2016.707
+            }
+        },
+        "https://wordpress.org": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 7740.154799999999,
+            "fcp": 3283.399,
+            "navigationTiming": {
+                "domComplete": 12900.258,
+                "domContentLoadedEventEnd": 6066.788,
+                "domInteractive": 6066.788,
+                "domloading": null,
+                "loadEventEnd": 12900.258,
+                "loadEventStart": 12900.258,
+                "requestStart": 583.345,
+                "responseEnd": 1083.355,
+                "responseStart": 1083.355
+            }
+        },
+        "https://youtu.be": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 9670.1934,
+            "fcp": 11850.237,
+            "navigationTiming": {
+                "domComplete": 16100.322,
+                "domContentLoadedEventEnd": 11866.904,
+                "domInteractive": 11866.904,
+                "domloading": null,
+                "loadEventEnd": 16116.989,
+                "loadEventStart": 16116.989,
+                "requestStart": 5816.783,
+                "responseEnd": 6566.798,
+                "responseStart": 6566.798
+            }
+        },
+        "https://digicert.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 6300.125999999999,
+            "fcp": 3466.736,
+            "navigationTiming": {
+                "domComplete": 10450.209,
+                "domContentLoadedEventEnd": 5683.447,
+                "domInteractive": 5666.78,
+                "domloading": null,
+                "loadEventEnd": 10500.21,
+                "loadEventStart": 10450.209,
+                "requestStart": 1333.36,
+                "responseEnd": 2050.041,
+                "responseStart": 2050.041
+            }
+        },
+        "https://mail.ru": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 10030.2006,
+            "fcp": 3533.404,
+            "navigationTiming": {
+                "domComplete": 16717.001,
+                "domContentLoadedEventEnd": 4750.095,
+                "domInteractive": 4750.095,
+                "domloading": null,
+                "loadEventEnd": 16717.001,
+                "loadEventStart": 16717.001,
+                "requestStart": 1650.033,
+                "responseEnd": 2116.709,
+                "responseStart": 2116.709
+            }
+        },
+        "https://github.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 5160.1032000000005,
+            "fcp": 4466.756,
+            "navigationTiming": {
+                "domComplete": 8600.172,
+                "domContentLoadedEventEnd": 6250.125,
+                "domInteractive": 2100.042,
+                "domloading": null,
+                "loadEventEnd": 8600.172,
+                "loadEventStart": 8600.172,
+                "requestStart": 1150.023,
+                "responseEnd": 1566.698,
+                "responseStart": 1566.698
+            }
+        },
+        "https://yahoo.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 8050.160999999999,
+            "fcp": 11083.555,
+            "navigationTiming": {
+                "domComplete": 13416.935,
+                "domContentLoadedEventEnd": 11350.227,
+                "domInteractive": 11333.56,
+                "domloading": null,
+                "loadEventEnd": 13416.935,
+                "loadEventStart": 13416.935,
+                "requestStart": 8000.16,
+                "responseEnd": 8416.835,
+                "responseStart": 8416.835
+            }
+        },
+        "https://ui.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 5680.1136,
+            "fcp": 1733.368,
+            "navigationTiming": {
+                "domComplete": 9466.856,
+                "domContentLoadedEventEnd": 1766.702,
+                "domInteractive": 1750.035,
+                "domloading": null,
+                "loadEventEnd": 9466.856,
+                "loadEventStart": 9466.856,
+                "requestStart": 383.341,
+                "responseEnd": 483.343,
+                "responseStart": 483.343
+            }
+        },
+        "https://pinterest.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 156043.12079999998,
+            "fcp": 4300.086,
+            "navigationTiming": {
+                "domComplete": 260038.534,
+                "domContentLoadedEventEnd": 2966.726,
+                "domInteractive": 1200.024,
+                "domloading": null,
+                "loadEventEnd": 260071.868,
+                "loadEventStart": 260038.534,
+                "requestStart": 583.345,
+                "responseEnd": 650.013,
+                "responseStart": 650.013
+            }
+        },
+        "https://tiktokv.com": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 1000.02,
+            "fcp": 1683.367,
+            "navigationTiming": {
+                "domComplete": 1666.7,
+                "domContentLoadedEventEnd": 1666.7,
+                "domInteractive": 1666.7,
+                "domloading": null,
+                "loadEventEnd": 1666.7,
+                "loadEventStart": 1666.7,
+                "requestStart": 933.352,
+                "responseEnd": 1600.032,
+                "responseStart": 1283.359
+            }
+        },
+        "https://sharepoint.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 12840.2568,
+            "fcp": 8783.509,
+            "navigationTiming": {
+                "domComplete": 21383.761,
+                "domContentLoadedEventEnd": 12350.247,
+                "domInteractive": 12300.246,
+                "domloading": null,
+                "loadEventEnd": 21400.428,
+                "loadEventStart": 21383.761,
+                "requestStart": 5550.111,
+                "responseEnd": 7033.474,
+                "responseStart": 7033.474
+            }
+        },
+        "https://windows.net": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 4570.0914,
+            "fcp": 7616.819,
+            "navigationTiming": {
+                "domComplete": 7616.819,
+                "domContentLoadedEventEnd": 7616.819,
+                "domInteractive": 7616.819,
+                "domloading": null,
+                "loadEventEnd": 7616.819,
+                "loadEventStart": 7616.819,
+                "requestStart": 6800.136,
+                "responseEnd": 7516.817,
+                "responseStart": 7400.148
+            }
+        },
+        "https://goo.gl": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 5330.1066,
+            "fcp": 8183.497,
+            "navigationTiming": {
+                "domComplete": 8883.511,
+                "domContentLoadedEventEnd": 8333.5,
+                "domInteractive": 8316.833,
+                "domloading": null,
+                "loadEventEnd": 8883.511,
+                "loadEventStart": 8883.511,
+                "requestStart": 4950.099,
+                "responseEnd": 5483.443,
+                "responseStart": 5483.443
+            }
+        },
+        "https://google-analytics.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 9680.1936,
+            "fcp": 11700.234,
+            "navigationTiming": {
+                "domComplete": 16133.656,
+                "domContentLoadedEventEnd": 12083.575,
+                "domInteractive": 12066.908,
+                "domloading": null,
+                "loadEventEnd": 16133.656,
+                "loadEventStart": 16133.656,
+                "requestStart": 8366.834,
+                "responseEnd": 8783.509,
+                "responseStart": 8783.509
+            }
+        },
+        "https://googlesyndication.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 4480.089599999999,
+            "fcp": 2916.725,
+            "navigationTiming": {
+                "domComplete": 7466.816,
+                "domContentLoadedEventEnd": 2916.725,
+                "domInteractive": 2900.058,
+                "domloading": null,
+                "loadEventEnd": 7466.816,
+                "loadEventStart": 7466.816,
+                "requestStart": 2700.054,
+                "responseEnd": 2816.723,
+                "responseStart": 2816.723
+            }
+        },
+        "https://spotify.com": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 920.0184,
+            "fcp": 1533.364,
+            "navigationTiming": {
+                "domComplete": 1533.364,
+                "domContentLoadedEventEnd": 1533.364,
+                "domInteractive": 1533.364,
+                "domloading": null,
+                "loadEventEnd": 1533.364,
+                "loadEventStart": 1533.364,
+                "requestStart": 1083.355,
+                "responseEnd": 1433.362,
+                "responseStart": 1433.362
+            }
+        },
+        "https://wordpress.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 3290.0658,
+            "fcp": 4100.082,
+            "navigationTiming": {
+                "domComplete": 5466.776,
+                "domContentLoadedEventEnd": 4116.749,
+                "domInteractive": 3933.412,
+                "domloading": null,
+                "loadEventEnd": 5483.443,
+                "loadEventStart": 5466.776,
+                "requestStart": 2683.387,
+                "responseEnd": 3250.065,
+                "responseStart": 3250.065
+            }
+        },
+        "https://vimeo.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 13830.2766,
+            "fcp": 8050.161,
+            "navigationTiming": {
+                "domComplete": 23033.794,
+                "domContentLoadedEventEnd": 10650.213,
+                "domInteractive": 5883.451,
+                "domloading": null,
+                "loadEventEnd": 23050.461,
+                "loadEventStart": 23033.794,
+                "requestStart": 3116.729,
+                "responseEnd": 3966.746,
+                "responseStart": 3966.746
+            }
+        },
+        "https://gandi.net": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 3210.0642,
+            "fcp": 2666.72,
+            "navigationTiming": {
+                "domComplete": 5350.107,
+                "domContentLoadedEventEnd": 2683.387,
+                "domInteractive": 2666.72,
+                "domloading": null,
+                "loadEventEnd": 5350.107,
+                "loadEventStart": 5350.107,
+                "requestStart": 1883.371,
+                "responseEnd": 1966.706,
+                "responseStart": 1966.706
+            }
+        },
+        "https://zoom.us": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 15950.319,
+            "fcp": 4200.084,
+            "navigationTiming": {
+                "domComplete": 26583.865,
+                "domContentLoadedEventEnd": 4350.087,
+                "domInteractive": 4333.42,
+                "domloading": null,
+                "loadEventEnd": 26583.865,
+                "loadEventStart": 26583.865,
+                "requestStart": 300.006,
+                "responseEnd": 550.011,
+                "responseStart": 550.011
+            }
+        },
+        "https://msn.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 10560.2112,
+            "fcp": 5916.785,
+            "navigationTiming": {
+                "domComplete": 17600.352,
+                "domContentLoadedEventEnd": 7350.147,
+                "domInteractive": 7350.147,
+                "domloading": null,
+                "loadEventEnd": 17600.352,
+                "loadEventStart": 17600.352,
+                "requestStart": 3883.411,
+                "responseEnd": 4233.418,
+                "responseStart": 4233.418
+            }
+        },
+        "https://bit.ly": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 7690.1538,
+            "fcp": 4366.754,
+            "navigationTiming": {
+                "domComplete": 12783.589,
+                "domContentLoadedEventEnd": 4733.428,
+                "domInteractive": 4366.754,
+                "domloading": null,
+                "loadEventEnd": 12816.923,
+                "loadEventStart": 12783.589,
+                "requestStart": 2250.045,
+                "responseEnd": 2750.055,
+                "responseStart": 2750.055
+            }
+        },
+        "https://yandex.net": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 3430.0686,
+            "fcp": 2100.042,
+            "navigationTiming": {
+                "domComplete": 5716.781,
+                "domContentLoadedEventEnd": 4033.414,
+                "domInteractive": 4033.414,
+                "domloading": null,
+                "loadEventEnd": 5716.781,
+                "loadEventStart": 5716.781,
+                "requestStart": 0,
+                "responseEnd": 983.353,
+                "responseStart": 983.353
+            }
+        },
+        "https://office365.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 149002.97999999998,
+            "fcp": 5366.774,
+            "navigationTiming": {
+                "domComplete": 248338.3,
+                "domContentLoadedEventEnd": 246871.604,
+                "domInteractive": 126602.532,
+                "domloading": null,
+                "loadEventEnd": 248338.3,
+                "loadEventStart": 248338.3,
+                "requestStart": 2733.388,
+                "responseEnd": 3250.065,
+                "responseStart": 3250.065
+            }
+        },
+        "https://skype.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 12060.2412,
+            "fcp": 9983.533,
+            "navigationTiming": {
+                "domComplete": 20100.402,
+                "domContentLoadedEventEnd": 10850.217,
+                "domInteractive": 10833.55,
+                "domloading": null,
+                "loadEventEnd": 20100.402,
+                "loadEventStart": 20100.402,
+                "requestStart": 5400.108,
+                "responseEnd": 6116.789,
+                "responseStart": 6116.789
+            }
+        },
+        "https://whatsapp.net": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 5370.1074,
+            "fcp": 4716.761,
+            "navigationTiming": {
+                "domComplete": 8933.512,
+                "domContentLoadedEventEnd": 4716.761,
+                "domInteractive": 4616.759,
+                "domloading": null,
+                "loadEventEnd": 8950.179,
+                "loadEventStart": 8933.512,
+                "requestStart": 1750.035,
+                "responseEnd": 2466.716,
+                "responseStart": 2466.716
+            }
+        },
+        "https://whatsapp.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 7630.152599999999,
+            "fcp": 4116.749,
+            "navigationTiming": {
+                "domComplete": 12716.921,
+                "domContentLoadedEventEnd": 4116.749,
+                "domInteractive": 4016.747,
+                "domloading": null,
+                "loadEventEnd": 12716.921,
+                "loadEventStart": 12716.921,
+                "requestStart": 2800.056,
+                "responseEnd": 3283.399,
+                "responseStart": 3283.399
+            }
+        },
+        "https://cloudflare.net": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 940.0188,
+            "fcp": 1133.356,
+            "navigationTiming": {
+                "domComplete": 1566.698,
+                "domContentLoadedEventEnd": 1366.694,
+                "domInteractive": 633.346,
+                "domloading": null,
+                "loadEventEnd": 1566.698,
+                "loadEventStart": 1566.698,
+                "requestStart": 300.006,
+                "responseEnd": 533.344,
+                "responseStart": 533.344
+            }
+        },
+        "https://mozilla.org": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 4500.089999999999,
+            "fcp": 5333.44,
+            "navigationTiming": {
+                "domComplete": 7500.15,
+                "domContentLoadedEventEnd": 5616.779,
+                "domInteractive": 5616.779,
+                "domloading": null,
+                "loadEventEnd": 7500.15,
+                "loadEventStart": 7500.15,
+                "requestStart": 4083.415,
+                "responseEnd": 4583.425,
+                "responseStart": 4583.425
+            }
+        },
+        "https://ntp.org": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 5020.1004,
+            "fcp": 4450.089,
+            "navigationTiming": {
+                "domComplete": 8366.834,
+                "domContentLoadedEventEnd": 2550.051,
+                "domInteractive": 2533.384,
+                "domloading": null,
+                "loadEventEnd": 8366.834,
+                "loadEventStart": 8366.834,
+                "requestStart": 1800.036,
+                "responseEnd": 2450.049,
+                "responseStart": 2450.049
+            }
+        },
+        "https://intuit.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 4350.087,
+            "fcp": 2350.047,
+            "navigationTiming": {
+                "domComplete": 7250.145,
+                "domContentLoadedEventEnd": 4116.749,
+                "domInteractive": 2350.047,
+                "domloading": null,
+                "loadEventEnd": 7250.145,
+                "loadEventStart": 7250.145,
+                "requestStart": 550.011,
+                "responseEnd": 616.679,
+                "responseStart": 616.679
+            }
+        },
+        "https://qq.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 90121.8024,
+            "fcp": 9966.866,
+            "navigationTiming": {
+                "domComplete": 150203.004,
+                "domContentLoadedEventEnd": 10200.204,
+                "domInteractive": 10150.203,
+                "domloading": null,
+                "loadEventEnd": 150203.004,
+                "loadEventStart": 150203.004,
+                "requestStart": 2350.047,
+                "responseEnd": 2416.715,
+                "responseStart": 2416.715
+            }
+        },
+        "https://cloudflare-dns.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 3830.0766,
+            "fcp": 2816.723,
+            "navigationTiming": {
+                "domComplete": 6383.461,
+                "domContentLoadedEventEnd": 2816.723,
+                "domInteractive": 2800.056,
+                "domloading": null,
+                "loadEventEnd": 6383.461,
+                "loadEventStart": 6383.461,
+                "requestStart": 1050.021,
+                "responseEnd": 1366.694,
+                "responseStart": 1366.694
+            }
+        },
+        "https://app-measurement.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 1280.0256000000002,
+            "fcp": 1083.355,
+            "navigationTiming": {
+                "domComplete": 2133.376,
+                "domContentLoadedEventEnd": 1066.688,
+                "domInteractive": 1066.688,
+                "domloading": null,
+                "loadEventEnd": 2133.376,
+                "loadEventStart": 2133.376,
+                "requestStart": 766.682,
+                "responseEnd": 983.353,
+                "responseStart": 983.353
+            }
+        },
+        "https://blogspot.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 18230.364599999997,
+            "fcp": 29450.589,
+            "navigationTiming": {
+                "domComplete": 30383.941,
+                "domContentLoadedEventEnd": 29450.589,
+                "domInteractive": 29450.589,
+                "domloading": null,
+                "loadEventEnd": 30383.941,
+                "loadEventStart": 30383.941,
+                "requestStart": 18550.371,
+                "responseEnd": 18667.04,
+                "responseStart": 18667.04
+            }
+        },
+        "https://googledomains.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 3690.0738,
+            "fcp": 4516.757,
+            "navigationTiming": {
+                "domComplete": 6150.123,
+                "domContentLoadedEventEnd": 4533.424,
+                "domInteractive": 4450.089,
+                "domloading": null,
+                "loadEventEnd": 6150.123,
+                "loadEventStart": 6150.123,
+                "requestStart": 2350.047,
+                "responseEnd": 2900.058,
+                "responseStart": 2900.058
+            }
+        },
+        "https://trbcdn.net": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 2540.0507999999995,
+            "fcp": null,
+            "navigationTiming": {
+                "domComplete": 4233.418,
+                "domContentLoadedEventEnd": 4233.418,
+                "domInteractive": 4216.751,
+                "domloading": null,
+                "loadEventEnd": 4233.418,
+                "loadEventStart": 4233.418,
+                "requestStart": 3766.742,
+                "responseEnd": 4133.416,
+                "responseStart": 4033.414
+            }
+        },
+        "https://tiktok.com": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 6380.1276,
+            "fcp": 6333.46,
+            "navigationTiming": {
+                "domComplete": 10633.546,
+                "domContentLoadedEventEnd": 6316.793,
+                "domInteractive": 6316.793,
+                "domloading": null,
+                "loadEventEnd": 10633.546,
+                "loadEventStart": 10633.546,
+                "requestStart": 3833.41,
+                "responseEnd": 4700.094,
+                "responseStart": 4700.094
+            }
+        },
+        "https://roblox.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 6290.1258,
+            "fcp": 7333.48,
+            "navigationTiming": {
+                "domComplete": 10433.542,
+                "domContentLoadedEventEnd": 7333.48,
+                "domInteractive": 7300.146,
+                "domloading": null,
+                "loadEventEnd": 10483.543,
+                "loadEventStart": 10450.209,
+                "requestStart": 1716.701,
+                "responseEnd": 2183.377,
+                "responseStart": 2183.377
+            }
+        },
+        "https://outlook.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 19120.3824,
+            "fcp": 22133.776,
+            "navigationTiming": {
+                "domComplete": 31867.304,
+                "domContentLoadedEventEnd": 26483.863,
+                "domInteractive": 26250.525,
+                "domloading": null,
+                "loadEventEnd": 31867.304,
+                "loadEventStart": 31867.304,
+                "requestStart": 17883.691,
+                "responseEnd": 18633.706,
+                "responseStart": 18633.706
+            }
+        },
+        "https://reddit.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 18020.3604,
+            "fcp": 3083.395,
+            "navigationTiming": {
+                "domComplete": 30033.934,
+                "domContentLoadedEventEnd": 3733.408,
+                "domInteractive": 2583.385,
+                "domloading": null,
+                "loadEventEnd": 30033.934,
+                "loadEventStart": 30033.934,
+                "requestStart": 1833.37,
+                "responseEnd": 2183.377,
+                "responseStart": 2183.377
+            }
+        },
+        "https://snapchat.com": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 1540.0307999999998,
+            "fcp": 2566.718,
+            "navigationTiming": {
+                "domComplete": 2566.718,
+                "domContentLoadedEventEnd": 2550.051,
+                "domInteractive": 2550.051,
+                "domloading": null,
+                "loadEventEnd": 2566.718,
+                "loadEventStart": 2566.718,
+                "requestStart": 2083.375,
+                "responseEnd": 2450.049,
+                "responseStart": 2450.049
+            }
+        },
+        "https://yandex.ru": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 10040.2008,
+            "fcp": 3416.735,
+            "navigationTiming": {
+                "domComplete": 16733.668,
+                "domContentLoadedEventEnd": 10800.216,
+                "domInteractive": 3950.079,
+                "domloading": null,
+                "loadEventEnd": 16733.668,
+                "loadEventStart": 16733.668,
+                "requestStart": 1883.371,
+                "responseEnd": 2183.377,
+                "responseStart": 2183.377
+            }
+        },
+        "https://opera.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 25670.5134,
+            "fcp": 9166.85,
+            "navigationTiming": {
+                "domComplete": 42784.189,
+                "domContentLoadedEventEnd": 9166.85,
+                "domInteractive": 5800.116,
+                "domloading": null,
+                "loadEventEnd": 42784.189,
+                "loadEventStart": 42784.189,
+                "requestStart": 4533.424,
+                "responseEnd": 5666.78,
+                "responseStart": 5666.78
+            }
+        },
+        "https://europa.eu": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 2280.0456,
+            "fcp": 3800.076,
+            "navigationTiming": {
+                "domComplete": 3800.076,
+                "domContentLoadedEventEnd": 3800.076,
+                "domInteractive": 3783.409,
+                "domloading": null,
+                "loadEventEnd": 3800.076,
+                "loadEventStart": 3800.076,
+                "requestStart": 3316.733,
+                "responseEnd": 3716.741,
+                "responseStart": 3716.741
+            }
+        },
+        "https://amazon-adsystem.com": {
+            "dnsLookupTimes": null,
+            "estimatedTBT": 760.0151999999999,
+            "fcp": 1283.359,
+            "navigationTiming": {
+                "domComplete": 1266.692,
+                "domContentLoadedEventEnd": 1266.692,
+                "domInteractive": 1266.692,
+                "domloading": null,
+                "loadEventEnd": 1266.692,
+                "loadEventStart": 1266.692,
+                "requestStart": 900.018,
+                "responseEnd": 1166.69,
+                "responseStart": 1083.355
+            }
+        },
+        "https://aws.amazon.com": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 33800.676,
+            "fcp": 11500.23,
+            "navigationTiming": {
+                "domComplete": 56334.46,
+                "domContentLoadedEventEnd": 11716.901,
+                "domInteractive": 11616.899,
+                "domloading": null,
+                "loadEventEnd": 56334.46,
+                "loadEventStart": 56334.46,
+                "requestStart": 1000.02,
+                "responseEnd": 1633.366,
+                "responseStart": 1633.366
+            }
+        }
+    }
+}

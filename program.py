@@ -13,6 +13,7 @@ import time
 from selenium.webdriver.common.utils import free_port
 import tempfile
 from os.path import join
+from time import sleep
 
 
 
@@ -24,12 +25,13 @@ ROOT_DIR = os.path.realpath(os.path.dirname(__file__))
 # Set path to tor browser
 tbb_dir = "/home/gilbert/tor-browser"
 # torrc_path = "/home/gilbert/GitKraken/RU-Master-Thesis-Code/torrc_custom"
-csv_file = 'top-2.csv'
-tranco_count = 0
+csv_file = 'top-1m.csv'
+csv_version = 'Z3WXG'
+tranco_count = 3694
 socks_port = free_port()
 # json_name = input('Enter name of json file to store metrics in: ')
 json_name = '1_mil_no_ublock.json'
-log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/1_mil_no_ublock.log'
+log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/1_mil_no_ublock_2.log'
 tor_process=None
 ### End of pahts and directories ###
 
@@ -105,7 +107,7 @@ def launch_tor_process(log=log_file):
 def load_tranco_file(csv_file):
     csv_data = []
     # Read all the entries with urls from the tranco csv file, and put them in a list.
-    with open(os.path.join(ROOT_DIR, 'tranco', csv_file), mode='r') as file:
+    with open(os.path.join(ROOT_DIR, 'tranco', csv_version, csv_file), mode='r') as file:
         csv_fileread = csv.reader(file)
 
         for entry in csv_fileread:
@@ -126,6 +128,9 @@ def tranco_looper(tranco_data, tor_process):
         # We load check.torproject.org because this also allows us to check our connection to the Tor network.
         driver.load_url('https://check.torproject.org/')
         print('Tor check loaded')
+        # Store the id of the 1st tab, so we can properly switch back to it after closing the new tab that is used for the actual crawling.
+        original_window = driver.current_window_handle
+        print('Current window handle: ' + original_window)
 
         # For each entry in the tranco data, collect the performance measurements. Note: first column is the rank, second is the domain as a string.
         while tranco_count <= (len(tranco_data)-1):
@@ -133,14 +138,13 @@ def tranco_looper(tranco_data, tor_process):
             # Format the url to be correct for Selenium
             url_checked = format_url(url[1])
             print('url formatted')
-            # Store the id of the 1st tab, so we can properly switch back to it after closing the new tab that is used for the actual crawling.
-            original_window = driver.current_window_handle
-            print('Current window handle: ' + original_window)
+            
             # Open a new tab
             driver.switch_to.new_window('tab')
             print('Switched to new tab')
             # Wait until the new tab has finished opening
-            wait.until(EC.number_of_windows_to_be(2))
+            # wait.until(EC.number_of_windows_to_be(2))
+            sleep(2)
             print(f'Trying to load: {url_checked}')
             # Try to load site from the Tranco list and collect performance metrics
             try:
@@ -151,6 +155,7 @@ def tranco_looper(tranco_data, tor_process):
                 print(f'Couldn\'t load {url_checked}. Error: {e}')
                 print('Continuing with next site...')
             # Close the new tab
+            sleep(5)
             driver.close()
             # Switch back to the original tab
             driver.switch_to.window(original_window)

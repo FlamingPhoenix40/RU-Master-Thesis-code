@@ -1,0 +1,20 @@
+{
+    "sites": {
+        "https://nos.nl": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 11870.2374,
+            "fcp": 11233.558,
+            "navigationTiming": {
+                "domComplete": 19750.395,
+                "domContentLoadedEventEnd": 15733.648,
+                "domInteractive": 11200.224,
+                "domloading": null,
+                "loadEventEnd": 19783.729,
+                "loadEventStart": 19750.395,
+                "requestStart": 1266.692,
+                "responseEnd": 2516.717,
+                "responseStart": 2516.717
+            }
+        }
+    }
+}

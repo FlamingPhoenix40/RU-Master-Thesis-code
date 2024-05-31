@@ -1,0 +1,52 @@
+{
+    "sites": {
+        "https://nos.nl": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 14240.2848,
+            "fcp": 9483.523,
+            "navigationTiming": {
+                "connectEnd": 4133.416,
+                "connectStart": 33.334,
+                "domComplete": 23717.141,
+                "domContentLoadedEventEnd": 16366.994,
+                "domContentLoadedEventStart": 16350.327,
+                "domInteractive": 9466.856,
+                "domainLookupEnd": 0,
+                "domainLookupStart": 0,
+                "domloading": null,
+                "fetchStart": 0,
+                "loadEventEnd": 23733.808,
+                "loadEventStart": 23717.141,
+                "navigationStart": null,
+                "requestStart": 4133.416,
+                "responseEnd": 6083.455,
+                "responseStart": 6083.455,
+                "secureConnectionStart": 1933.372
+            }
+        },
+        "https://tweakers.net": {
+            "dnsLookupTimes": 0,
+            "estimatedTBT": 35300.706,
+            "fcp": 53284.399,
+            "navigationTiming": {
+                "connectEnd": 48400.968,
+                "connectStart": 33.334,
+                "domComplete": 58834.51,
+                "domContentLoadedEventEnd": 53317.733,
+                "domContentLoadedEventStart": 53317.733,
+                "domInteractive": 53317.733,
+                "domainLookupEnd": 0,
+                "domainLookupStart": 0,
+                "domloading": null,
+                "fetchStart": 0,
+                "loadEventEnd": 58834.51,
+                "loadEventStart": 58834.51,
+                "navigationStart": null,
+                "requestStart": 48400.968,
+                "responseEnd": 49317.653,
+                "responseStart": 49317.653,
+                "secureConnectionStart": 47350.947
+            }
+        }
+    }
+}
