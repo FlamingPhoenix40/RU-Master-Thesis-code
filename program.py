@@ -27,11 +27,11 @@ tbb_dir = "/home/gilbert/tor-browser"
 # torrc_path = "/home/gilbert/GitKraken/RU-Master-Thesis-Code/torrc_custom"
 csv_file = 'top-1m.csv'
 csv_version = 'Z3WXG'
-tranco_count = 3694
+tranco_count = 5977
 socks_port = free_port()
 # json_name = input('Enter name of json file to store metrics in: ')
 json_name = '1_mil_no_ublock.json'
-log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/1_mil_no_ublock_2.log'
+log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/1_mil_no_ublock_4.log'
 tor_process=None
 ### End of pahts and directories ###
 
