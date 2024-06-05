@@ -25,14 +25,15 @@ ROOT_DIR = os.path.realpath(os.path.dirname(__file__))
 # Set path to tor browser
 tbb_dir = "/home/gilbert/tor-browser"
 # torrc_path = "/home/gilbert/GitKraken/RU-Master-Thesis-Code/torrc_custom"
-csv_file = 'top-1m.csv'
+csv_file = 'extracted_urls.csv'
 csv_version = 'Z3WXG'
-tranco_count = 5977
+tranco_count = 1382
 socks_port = free_port()
 # json_name = input('Enter name of json file to store metrics in: ')
-json_name = '1_mil_no_ublock.json'
-log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/1_mil_no_ublock_4.log'
+json_name = '5000_with_ublock.json'
+log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/5000_run_with_ublock_3.log'
 tor_process=None
+not_working = []
 ### End of pahts and directories ###
 
 
@@ -128,6 +129,7 @@ def tranco_looper(tranco_data, tor_process):
         # We load check.torproject.org because this also allows us to check our connection to the Tor network.
         driver.load_url('https://check.torproject.org/')
         print('Tor check loaded')
+        sleep(10)
         # Store the id of the 1st tab, so we can properly switch back to it after closing the new tab that is used for the actual crawling.
         original_window = driver.current_window_handle
         print('Current window handle: ' + original_window)
@@ -144,7 +146,7 @@ def tranco_looper(tranco_data, tor_process):
             print('Switched to new tab')
             # Wait until the new tab has finished opening
             # wait.until(EC.number_of_windows_to_be(2))
-            sleep(2)
+            sleep(5)
             print(f'Trying to load: {url_checked}')
             # Try to load site from the Tranco list and collect performance metrics
             try:
@@ -153,6 +155,10 @@ def tranco_looper(tranco_data, tor_process):
                 store_perf_metrics_in_json(url_checked, metrics)
             except WebDriverException as e:
                 print(f'Couldn\'t load {url_checked}. Error: {e}')
+                not_working.append(url_checked)
+                with open('/home/gilbert/failed/failed_links.txt', "a") as file:
+                    file.write(url_checked + "\n")
+
                 print('Continuing with next site...')
             # Close the new tab
             sleep(5)
@@ -166,7 +172,7 @@ def tranco_looper(tranco_data, tor_process):
         
         
     # Once all sites have been loaded, close the Tor process.
-    print('Last site loaded, exiting program...')
+    print('Last site loaded, saving failed sexiting program...')
     tor_process.kill()
         
 
