@@ -172,7 +172,7 @@ def tranco_looper(tranco_data, tor_process):
         
         
     # Once all sites have been loaded, close the Tor process.
-    print('Last site loaded, saving failed sexiting program...')
+    print('Last site loaded, exiting program...')
     tor_process.kill()
         
 
