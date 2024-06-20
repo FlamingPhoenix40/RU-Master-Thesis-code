@@ -1,0 +1,12 @@
+File: 5000_no_ublock.log_circuit_build_times_add_time.txt
+Number of outliers: 1689
+
+File: 5000_no_ublock_2.log_circuit_build_times_add_time.txt
+Number of outliers: 531
+
+File: 5000_no_ublock_3.log_circuit_build_times_add_time.txt
+Number of outliers: 114
+
+File: 5000_no_ublock_4.log_circuit_build_times_add_time.txt
+Number of outliers: 437
+
