@@ -1,0 +1,4 @@
+Minimum Timeout Time: 1499.799501
+Maximum Timeout Time: 7843.874812
+Mean Timeout Time: 4654.723021814313
+Median Timeout Time: 4503.938286

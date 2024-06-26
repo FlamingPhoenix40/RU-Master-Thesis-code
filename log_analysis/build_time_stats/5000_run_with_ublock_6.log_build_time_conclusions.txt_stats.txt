@@ -1,0 +1,4 @@
+Minimum Build Time: 2491.94492
+Maximum Build Time: 3998.274083
+Mean Build Time: 3101.229687704546
+Median Build Time: 3489.2077765

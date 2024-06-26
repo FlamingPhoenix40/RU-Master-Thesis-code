@@ -1,0 +1,13 @@
+Jun 05 00:59:54.620 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5248.698522ms, 87727.390158ms, Xm: 1156, a: 1.063729, r: 0.231000
+Jun 05 02:38:39.961 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5505.752971ms, 91798.000000ms, Xm: 983, a: 0.934123, r: 0.245000
+Jun 05 02:38:44.228 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5442.975526ms, 91798.000000ms, Xm: 1028, a: 0.965637, r: 0.255000
+Jun 05 02:39:10.262 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5500.103400ms, 91798.000000ms, Xm: 986, a: 0.936337, r: 0.248000
+Jun 05 02:39:11.109 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5491.480266ms, 91798.000000ms, Xm: 986, a: 0.937193, r: 0.249000
+Jun 05 02:43:06.945 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5503.448877ms, 91798.000000ms, Xm: 1007, a: 0.947620, r: 0.246000
+Jun 05 02:43:06.998 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5493.435221ms, 91798.000000ms, Xm: 1012, a: 0.951415, r: 0.249000
+Jun 05 02:43:55.214 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5513.294514ms, 91798.000000ms, Xm: 1013, a: 0.949943, r: 0.245000
+Jun 05 02:44:05.113 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5497.665237ms, 91798.000000ms, Xm: 994, a: 0.941004, r: 0.244000
+Jun 05 02:44:06.217 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5509.054049ms, 91798.000000ms, Xm: 973, a: 0.928291, r: 0.240000
+Jun 05 02:44:18.501 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5497.867854ms, 91798.000000ms, Xm: 973, a: 0.929381, r: 0.243000
+Jun 05 02:44:20.784 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5504.577813ms, 91798.000000ms, Xm: 973, a: 0.928727, r: 0.242000
+Jun 05 02:49:58.859 [info] circuit_build_times_set_timeout(): Circuit timeout data: 5489.583769ms, 91798.000000ms, Xm: 981, a: 0.934614, r: 0.246000
