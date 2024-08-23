@@ -22,7 +22,7 @@ def filter_sites(no_ublock_json, with_ublock_json, output_file):
         json.dump(no_ublock_data, outfile, indent=2)  # Add indentation for readability
 
 
-# Example usage
+
 no_ublock_json = '5000_no_ublock.json'
 with_ublock_json = '5000_with_ublock.json'
 output_file = 'filtered_data_no_ublock.json'
