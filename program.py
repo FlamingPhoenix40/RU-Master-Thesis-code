@@ -26,11 +26,11 @@ tbb_dir = "/home/gilbert/tor-browser"
 # torrc_path = "/home/gilbert/GitKraken/RU-Master-Thesis-Code/torrc_custom"
 csv_file = '1000_run_august.csv'
 csv_version = 'Z3WXG'
-tranco_count = 0
+tranco_count = 1031
 socks_port = free_port()
 # json_name = input('Enter name of json file to store metrics in: ')
 json_name = '1000_aug_without_ublock.json'
-log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/1000_run_aug_without_ublock_1.log'
+log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/1000_run_aug_without_ublock_2.log'
 tor_process=None
 not_working = []
 ### End of pahts and directories ###
@@ -133,7 +133,7 @@ def tranco_looper(tranco_data, tor_process):
             # Wait until the new tab has finished opening
             # wait.until(EC.number_of_windows_to_be(2))
             sleep(5)
-            print(f'Trying to load: {url_checked}')
+            print(f'Trying to load: {url_checked} which is tranco_count {tranco_count}')
             # Try to load site from the Tranco list and collect performance metrics
             try:
                 driver.load_url(url_checked)
