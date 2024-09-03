@@ -107,23 +107,23 @@ def main_plot_function(json_filename, which_graphs, output_subfolder):
 
 def main():
     json_filename = input("Use JSON file with or without ublock? ('w' or 'wo' or 'both'): ")
-    which_graphs = input("Which graphs would you like to generate? (histogram, scatterplot, boxplot): ")
+    which_graphs = input("Which graphs would you like to generate? (histogram, boxplot, all): ")
     
     match json_filename:
         case "wo":
-            json_filename = 'filtered_data_no_ublock.json'
+            json_filename = '1000_aug_without_ublock.json'
             output_subfolder = 'no_ublock'
             main_plot_function(json_filename, which_graphs, output_subfolder)
         case "w":
-            json_filename = '5000_with_ublock.json'
+            json_filename = '1000_aug_with_ublock.json'
             output_subfolder = 'with_ublock'
             main_plot_function(json_filename, which_graphs, output_subfolder)
         case "both":
             output_subfolder_wo = 'no_ublock'
-            json_filename = 'filtered_data_no_ublock.json'
+            json_filename = '1000_aug_without_ublock.json'
             main_plot_function(json_filename, which_graphs, output_subfolder_wo)
             output_subfolder_w = 'with_ublock'
-            json_filename = '5000_with_ublock.json'
+            json_filename = '1000_aug_with_ublock.json'
             main_plot_function(json_filename, which_graphs, output_subfolder_w)
         case _:
             exit('invalid input for json file type, exiting...')

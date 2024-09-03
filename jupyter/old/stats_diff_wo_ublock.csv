@@ -1,0 +1,5 @@
+metric,mean,median
+dom_content_loaded_event_diff,20.51093861740167,0.0
+load_event_diff,8.495733412793037,0.0
+response_diff,70.28679837107667,0.0
+response_time,946.1121545490664,550.011

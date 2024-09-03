@@ -1,0 +1,21 @@
+File: 1000_run_aug_without_ublock_1.log_circuit_build_times_add_time.txt
+Number of outliers: 170
+
+File: 1000_run_aug_without_ublock_2.log_circuit_build_times_add_time.txt
+Number of outliers: 64
+
+File: 1000_run_aug_with_ublock_1.log_circuit_build_times_add_time.txt
+Number of outliers: 75
+
+File: 1000_run_aug_with_ublock_2.log_circuit_build_times_add_time.txt
+Number of outliers: 51
+
+File: 1000_run_aug_with_ublock_3.log_circuit_build_times_add_time.txt
+Number of outliers: 34
+
+File: 1000_run_aug_without_ublock_combined_circuit_build_times_add_time.txt
+Number of outliers: 234
+
+File: 1000_run_aug_with_ublock_combined_circuit_build_times_add_time.txt
+Number of outliers: 160
+

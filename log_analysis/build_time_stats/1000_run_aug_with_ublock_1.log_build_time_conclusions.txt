@@ -1,0 +1,1 @@
+Aug 29 09:51:28.845 [info] circuit_build_times_set_timeout(): Circuit timeout data: 1050.784580ms, 60000.000000ms, Xm: 691, a: 3.839743, r: 0.203000
