@@ -73,6 +73,31 @@ def plot_metric_boxplot(values, metric_name, output_file=None):
 
         plt.close()
 
+def plot_all_metrics_boxplot(data, output_file=None):
+    """Plots a boxplot of all metrics and saves it as a PNG file."""
+    all_data = []
+    labels = []
+    
+    # Extract data for all metrics
+    for metric_name in data['sites'].values()[0].keys():  # Get metrics from the first site
+        values = extract_metric_values(data, metric_name)
+        if values:
+            if isinstance(values, dict):  # Handle sub-metrics
+                for sub_metric, sub_values in values.items():
+                    all_data.append(sub_values)
+                    labels.append(f"{metric_name} - {sub_metric}")
+            else:
+                all_data.append(values)
+                labels.append(metric_name)
+    
+    plt.figure(figsize=(12, 8))  # Adjust figure size as needed
+    plt.boxplot(all_data, vert=False, labels=labels)
+    plt.title('Boxplot of All Metrics')
+    plt.xlabel('Values')
+    plt.yticks([])  # Hide y-axis ticks and labels
+
+    plt.savefig(output_file)
+
 
 def main_plot_function(json_filename, which_graphs, output_subfolder):
     json_file_path = os.path.join(ROOT_DIR, 'json_files', json_filename)  # Use ROOT_DIR
@@ -97,9 +122,12 @@ def main_plot_function(json_filename, which_graphs, output_subfolder):
                     plot_metric_histogram(values, metric, output_file)
                 case "boxplot":
                     plot_metric_boxplot(values, metric, output_file)
+                case "boxplot_all":
+                    plot_all_metrics_boxplot(data, output_file)
                 case "all":
                     plot_metric_histogram(values, metric, output_file)
                     plot_metric_boxplot(values, metric, output_file)
+                    plot_all_metrics_boxplot(data, output_file)
                 case _:
                     exit('invalid input for graph type, exiting...')
 
