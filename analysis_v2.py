@@ -73,33 +73,45 @@ def plot_metric_boxplot(values, metric_name, output_file=None):
 
         plt.close()
 
-def plot_all_metrics_boxplot(data, output_file=None):
+def plot_all_metrics_boxplot(data, axis_max, output_file=None):
     """Plots a boxplot of all metrics and saves it as a PNG file."""
-    all_data = []
+    
+    
+
+    # Metrics to exclude from the plot
+    excluded_metrics = ['estimatedTBT', 'dnsLookupTimes']
+    # Create a list of all metrics
+    all_metrics = [metric for metric in list(data['sites'].values())[0].keys() if metric not in excluded_metrics]
+
+    # Prepare data for plotting
+    data_to_plot = []
     labels = []
-    
-    # Extract data for all metrics
-    for metric_name in data['sites'].values()[0].keys():  # Get metrics from the first site
-        values = extract_metric_values(data, metric_name)
-        if values:
-            if isinstance(values, dict):  # Handle sub-metrics
-                for sub_metric, sub_values in values.items():
-                    all_data.append(sub_values)
-                    labels.append(f"{metric_name} - {sub_metric}")
-            else:
-                all_data.append(values)
-                labels.append(metric_name)
-    
-    plt.figure(figsize=(12, 8))  # Adjust figure size as needed
-    plt.boxplot(all_data, vert=False, labels=labels)
+    for metric in all_metrics:
+        values = extract_metric_values(data, metric)
+        if values:  # Skip empty metrics
+            for sub_metric, sub_values in values.items():
+                data_to_plot.append(sub_values)
+                labels.append(f"{metric} - {sub_metric}")
+
+    plt.figure(figsize=(15, 8))  # Adjust figure size as needed
+    if axis_max is not None:
+        ax = plt.gca()
+        ax.set_xlim([0, axis_max])
+    plt.boxplot(data_to_plot, vert=False, labels=labels)
     plt.title('Boxplot of All Metrics')
     plt.xlabel('Values')
-    plt.yticks([])  # Hide y-axis ticks and labels
+    plt.yticks(fontsize=8)  # Adjust font size if labels overlap
+    plt.tight_layout()  # Prevent labels from being cut off
 
-    plt.savefig(output_file)
+    if output_file:
+        plt.savefig(output_file)
+    else:
+        plt.show()
 
+    plt.close()
+    
 
-def main_plot_function(json_filename, which_graphs, output_subfolder):
+def main_plot_function(json_filename, which_graphs, output_subfolder, axis_max):
     json_file_path = os.path.join(ROOT_DIR, 'json_files', json_filename)  # Use ROOT_DIR
     data = load_json_data(json_file_path)
 
@@ -123,11 +135,11 @@ def main_plot_function(json_filename, which_graphs, output_subfolder):
                 case "boxplot":
                     plot_metric_boxplot(values, metric, output_file)
                 case "boxplot_all":
-                    plot_all_metrics_boxplot(data, output_file)
+                    plot_all_metrics_boxplot(data, axis_max, output_file)
                 case "all":
                     plot_metric_histogram(values, metric, output_file)
                     plot_metric_boxplot(values, metric, output_file)
-                    plot_all_metrics_boxplot(data, output_file)
+                    plot_all_metrics_boxplot(data, axis_max, output_file)
                 case _:
                     exit('invalid input for graph type, exiting...')
 
@@ -135,24 +147,34 @@ def main_plot_function(json_filename, which_graphs, output_subfolder):
 
 def main():
     json_filename = input("Use JSON file with or without ublock? ('w' or 'wo' or 'both'): ")
-    which_graphs = input("Which graphs would you like to generate? (histogram, boxplot, all): ")
-    
+    which_graphs = input("Which graphs would you like to generate? (histogram, boxplot, boxplot_all, all): ")
+    axis_mode = input("Set axis limits manually? (y/n): ")
+
+    axis_max = None
+
+    if axis_mode.lower() == 'y':
+        try:
+            axis_max = float(input("Enter the maximum value for the x-axis: "))
+        except ValueError:
+            exit('invalid input for maximum value, please try again...')
+            return
+
     match json_filename:
         case "wo":
             json_filename = '1000_aug_without_ublock.json'
             output_subfolder = 'no_ublock'
-            main_plot_function(json_filename, which_graphs, output_subfolder)
+            main_plot_function(json_filename, which_graphs, output_subfolder, axis_max)
         case "w":
             json_filename = '1000_aug_with_ublock.json'
             output_subfolder = 'with_ublock'
-            main_plot_function(json_filename, which_graphs, output_subfolder)
+            main_plot_function(json_filename, which_graphs, output_subfolder, axis_max)
         case "both":
             output_subfolder_wo = 'no_ublock'
             json_filename = '1000_aug_without_ublock.json'
-            main_plot_function(json_filename, which_graphs, output_subfolder_wo)
+            main_plot_function(json_filename, which_graphs, output_subfolder_wo, axis_max)
             output_subfolder_w = 'with_ublock'
             json_filename = '1000_aug_with_ublock.json'
-            main_plot_function(json_filename, which_graphs, output_subfolder_w)
+            main_plot_function(json_filename, which_graphs, output_subfolder_w, axis_max)
         case _:
             exit('invalid input for json file type, exiting...')
 
