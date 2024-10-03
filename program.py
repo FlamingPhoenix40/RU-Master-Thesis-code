@@ -26,11 +26,12 @@ tbb_dir = "/home/gilbert/tor-browser"
 # torrc_path = "/home/gilbert/GitKraken/RU-Master-Thesis-Code/torrc_custom"
 csv_file = '1000_run_august.csv'
 csv_version = 'Z3WXG'
-tranco_count = 1061
+tranco_count = 0
 socks_port = free_port()
-# json_name = input('Enter name of json file to store metrics in: ')
+# Before running program, set filename of json file to be generated and tor log file.
 json_name = '1000_aug_with_ublock.json'
-log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/1000_run_aug_with_ublock_3.log'
+log_file = 'debug file /media/gilbert/Crucial X6/tor_logs/1000_run_aug_with_ublock_1.log'
+
 tor_process=None
 not_working = []
 ### End of pahts and directories ###
@@ -54,11 +55,10 @@ def main():
 
     tranco_looper(tranco_data, tor_process)
     
-    #tor_process.kill()
     
 def launch_tor_process(log=log_file):
-    # Try to launch tor process with stem. If tor process is already running, catch the exception and print a message which asks the user to kill the process in system monitor.
     
+    # Configuring tor browser
     control_port = free_port()
     safelogging = 0
     logtimegranularity = 1
@@ -78,7 +78,8 @@ def launch_tor_process(log=log_file):
              'GeoIPv6File': str(geoipv6file)}
 
     
-
+    # Try to launch tor process with stem. If tor process is already running,
+    # catch the exception and print a message which asks the user to kill the process in system monitor.
     try:
         tor_process = launch_tbb_tor_with_stem(tbb_path=tbb_dir, torrc=torrc, tor_binary=tor_binary)
     except OSError:
@@ -104,8 +105,9 @@ def load_tranco_file(csv_file):
 
 
 def tranco_looper(tranco_data, tor_process):
-    # Debug to check how long tranco data is
+    
     global tranco_count
+    # Info print to check how long tranco data is that is loaded
     print("tranco data is " + str(len(tranco_data)) + " long")
     with TorBrowserDriver(tbb_dir, tor_cfg=cm.USE_STEM, socks_port=socks_port) as driver:
         # Setup wait for use later according to the Selenium documentation
@@ -115,12 +117,15 @@ def tranco_looper(tranco_data, tor_process):
         # We load check.torproject.org because this also allows us to check our connection to the Tor network.
         driver.load_url('https://check.torproject.org/')
         print('Tor check loaded')
+        # Give everything time to settle
         sleep(10)
-        # Store the id of the 1st tab, so we can properly switch back to it after closing the new tab that is used for the actual crawling.
+        # Store the id of the 1st tab, so we can properly switch back to it
+        # after closing the new tab that is used for the actual crawling.
         original_window = driver.current_window_handle
         print('Current window handle: ' + original_window)
 
-        # For each entry in the tranco data, collect the performance measurements. Note: first column is the rank, second is the domain as a string.
+        # For each entry in the tranco data, collect the performance measurements.
+        # Note: first column is the rank, second is the domain as a string.
         while tranco_count <= (len(tranco_data)-1):
             url = tranco_data[tranco_count]
             # Format the url to be correct for Selenium
@@ -131,7 +136,6 @@ def tranco_looper(tranco_data, tor_process):
             driver.switch_to.new_window('tab')
             print('Switched to new tab')
             # Wait until the new tab has finished opening
-            # wait.until(EC.number_of_windows_to_be(2))
             sleep(5)
             print(f'Trying to load: {url_checked} which is tranco_count {tranco_count}')
             # Try to load site from the Tranco list and collect performance metrics
@@ -154,7 +158,7 @@ def tranco_looper(tranco_data, tor_process):
 
             # Increment the count to go to the next site in the Tranco list
             tranco_count += 1
-            # load_site(url)
+
         
         
     # Once all sites have been loaded, close the Tor process.
@@ -165,9 +169,12 @@ def tranco_looper(tranco_data, tor_process):
 
 
 def measure_performance(driver):
-    
-    performance_metrics = driver.execute_script(open(os.path.join(ROOT_DIR, 'JS_scripts', 'performanceMeasuring.js')).read() + " return getPerformanceMetrics(navigationEntry);")
+    # Execute JavaScript from javascript file to measure performance metrics
+    performance_metrics = driver.execute_script(open(os.path.join(ROOT_DIR, 'JS_scripts', 'performanceMeasuring.js')).read() + 
+                                                " return getPerformanceMetrics(navigationEntry);")
     print(performance_metrics)
+
+    # start_time not used in the end, had some problems with it.
     start_time = time.time_ns() / 1000000
     
     print(start_time)
@@ -177,6 +184,7 @@ def measure_performance(driver):
 
 def store_perf_metrics_in_json(url_checked, metrics, output_file=json_name):
     
+    #If json file already exists, load it and add the new data to it. If not, create a new json file.
     if os.path.exists(os.path.join(ROOT_DIR, 'json_files', output_file)):
         print(f'\n File {output_file} exists, loading data...\n')
         with open(os.path.join(ROOT_DIR, 'json_files', output_file), 'r') as file:

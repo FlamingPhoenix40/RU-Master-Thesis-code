@@ -1,4 +1,5 @@
 function getContentfulPaints() {
+    // Get first contentful paint
     const paintTimings = performance.getEntriesByType("paint");
     console.log("paintTimings: ", paintTimings);
     const fcpEntry = paintTimings.find(entry => entry.name === "first-contentful-paint");
@@ -9,8 +10,9 @@ function getContentfulPaints() {
 }
   
 
-  //return getContentfulPaints(); 
 
+// Tried to implement own function to estimate blocking time.
+// Left in at time of collection, but not used in final analysis.
 function estimateBlockingTime(navigationEntry) {
     console.log("estimateBlockingTime function executing...");
 
@@ -32,8 +34,8 @@ function estimateBlockingTime(navigationEntry) {
     return estimatedTBT;
 }
 
-//const estimatedTBT = estimateBlockingTime();
 
+// Function to get navigation timing data
 function getNavigationTiming(navigationEntry) {
     let timingData = {};
     const navigationEntry_zero = navigationEntry[0];
@@ -65,6 +67,7 @@ function getNavigationTiming(navigationEntry) {
     return timingData;
 }
 
+// Function to get DNS lookup times. When starting analysis, turned out to be unusable.
 function getDNSLookupTimes(hostname) {
     const resources = performance.getEntriesByType("resource");
     const resourceEntry = resources.find(entry => entry.name.includes(hostname));
@@ -76,12 +79,13 @@ function getDNSLookupTimes(hostname) {
     }
 }
 
+// Turned out to be unusable bc tor browser clamps it to 100ms
 function recordNavigationStartTime() {
     window.pythonPageLoadStartTime = performance.now();
 }
 
 
-
+// Gather all metrics from the different functions to pass them back to the pythhon script
 function getPerformanceMetrics(navigationEntry) {
     const hostname = new URL(navigationEntry[0].name).hostname;
 

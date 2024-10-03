@@ -55,11 +55,14 @@ def plot_metric_histogram(values, metric_name, output_file=None):
     
         plt.close()
 
-def plot_metric_boxplot(values, metric_name, output_file=None):
+def plot_metric_boxplot(values, metric_name, axis_max, output_file=None):
     for sub_metric, values in values.items():
         df = pd.DataFrame({sub_metric: values})
 
         plt.figure(figsize=(10, 6))
+        if axis_max is not None:
+            ax = plt.gca()
+            ax.set_xlim([0, axis_max])
         plt.boxplot(df[sub_metric], vert = False)
         plt.title(f'Boxplot of {metric_name} - {sub_metric}')
         plt.xlabel('Values')
@@ -133,12 +136,12 @@ def main_plot_function(json_filename, which_graphs, output_subfolder, axis_max):
                 case "histogram":
                     plot_metric_histogram(values, metric, output_file)
                 case "boxplot":
-                    plot_metric_boxplot(values, metric, output_file)
+                    plot_metric_boxplot(values, metric, axis_max, output_file)
                 case "boxplot_all":
                     plot_all_metrics_boxplot(data, axis_max, output_file)
                 case "all":
                     plot_metric_histogram(values, metric, output_file)
-                    plot_metric_boxplot(values, metric, output_file)
+                    plot_metric_boxplot(values, metric, axis_max, output_file)
                     plot_all_metrics_boxplot(data, axis_max, output_file)
                 case _:
                     exit('invalid input for graph type, exiting...')
