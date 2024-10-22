@@ -112,6 +112,44 @@ def plot_all_metrics_boxplot(data, axis_max, output_file=None):
         plt.show()
 
     plt.close()
+
+
+def plot_side_by_side_boxplot(metric_name, data1, data2, axis_max, output_file=None):
+    values1 = extract_metric_values(data1, metric_name)
+    values2 = extract_metric_values(data2, metric_name)
+
+    if not values1 or not values2:
+        print(f'Error: No data found for metric: {metric_name} in one or both files')
+        return
+    
+    plt.figure(figsize=(10, 6))
+
+    data_to_plot = []
+    labels = []
+    for sub_metric, sub_values in values1.items():
+        data_to_plot.append(sub_values)
+        labels.append(f"Without uBO - {sub_metric}")
+    
+    for sub_metric, sub_values in values2.items():
+        data_to_plot.append(sub_values)
+        labels.append(f"With uBO - {sub_metric}")
+
+    if axis_max is not None:
+        ax = plt.gca()
+        ax.set_xlim([0, axis_max])
+    
+    plt.boxplot(data_to_plot, vert=False, labels=labels)
+    plt.title(f'Side-by-side boxplot of {metric_name}')
+    plt.xlabel('Values')
+    plt.yticks(fontsize=8)
+    plt.tight_layout()
+
+    if output_file:
+        plt.savefig(output_file)
+    else:
+        plt.show()
+    
+    plt.close()
     
 
 def main_plot_function(json_filename, which_graphs, output_subfolder, axis_max):
@@ -149,7 +187,7 @@ def main_plot_function(json_filename, which_graphs, output_subfolder, axis_max):
             
 
 def main():
-    json_filename = input("Use JSON file with or without ublock? ('w' or 'wo' or 'both'): ")
+    json_filename = input("Use JSON file with or without ublock? ('w', 'wo', 'both', sbs): ")
     which_graphs = input("Which graphs would you like to generate? (histogram, boxplot, boxplot_all, all): ")
     axis_mode = input("Set axis limits manually? (y/n): ")
 
@@ -178,6 +216,13 @@ def main():
             output_subfolder_w = 'with_ublock'
             json_filename = '1000_aug_with_ublock.json'
             main_plot_function(json_filename, which_graphs, output_subfolder_w, axis_max)
+        case "sbs": # sbs = sided by side
+            output_subfolder_wo = 'no_ublock'
+            data_wo = load_json_data(os.path.join(ROOT_DIR, 'json_files', '1000_aug_without_ublock.json'))
+            data_w = load_json_data(os.path.join(ROOT_DIR, 'json_files', '1000_aug_with_ublock.json'))
+            metric_to_plot = input("Enter the metric you would like to plot: ")
+            output_file = os.path.join(ROOT_DIR, 'graphs', 'sbs', f'{metric_to_plot}_sbs.png')
+            plot_side_by_side_boxplot(metric_to_plot, data_wo, data_w, axis_max, output_file)
         case _:
             exit('invalid input for json file type, exiting...')
 
